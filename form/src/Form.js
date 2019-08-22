@@ -39,7 +39,7 @@ const OnBoardingUser = ({ errors, touched, values, status }) => {
       {users.map(user => (
         <ul className="onboardList" key={user.id}>
           <li>
-            <h1>OnBoarding User</h1>
+            <h1>User Has Been On Boarded</h1>
           </li>
           <li>Name: {user.name}</li>
           <li>Email: {user.email}</li>
