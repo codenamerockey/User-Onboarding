@@ -63,6 +63,5 @@ const FormikOnBoard = withFormik({
       })
       .catch(err => console.log(err.response));
   }
-})(OnBoardingUser); // currying functions in Javascript
-// console.log("This is the HOC", FormikAnimalForm)
+})(OnBoardingUser);
 export default FormikOnBoard;
