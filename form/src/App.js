@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Form />
+      <Form email={`Codenamerockey@gmail.com`} />
     </div>
   );
 }

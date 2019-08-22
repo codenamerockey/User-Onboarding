@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
-const OnBoardingUser = ({ errors, touched, values }) => {
+const OnBoardingUser = ({ errors, touched, values, status }) => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    if (status) {
+      setUsers([...users, status]);
+    }
+  }, [status]);
   return (
-    <div className="animal-form">
+    <div>
       <h1>OnBoarding User</h1>
       <Form>
         <Field type="text" name="name" placeholder="Enter Name" />
@@ -29,6 +36,15 @@ const OnBoardingUser = ({ errors, touched, values }) => {
 
         <button type="submit">Submit!</button>
       </Form>
+      {users.map(user => (
+        <ul className="onboardList" key={user.id}>
+          <li>
+            <h1>OnBoarding User</h1>
+          </li>
+          <li>Name: {user.name}</li>
+          <li>Email: {user.email}</li>
+        </ul>
+      ))}
     </div>
   );
 };
@@ -51,7 +67,7 @@ const FormikOnBoard = withFormik({
       .email('Email not Valid')
       .required('You forgetting something @'),
     password: Yup.string()
-      .min(16, 'Password must be 16 characters or longer')
+      .min(8, 'Password must be 8 characters or longer')
       .required('Password is required')
   }),
 
