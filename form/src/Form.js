@@ -38,7 +38,8 @@ const FormikOnBoard = withFormik({
     return {
       name: name || '',
       email: email || '',
-      password: password || ''
+      password: password || '',
+      terms: terms || false
     };
   },
 
